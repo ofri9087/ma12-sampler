@@ -1,12 +1,9 @@
 package matmon.work.parser;
 
-import com.opencsv.CSVReader;
 import matmon.work.object.test.*;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.Instant;
-import java.io.FileReader;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -26,27 +23,29 @@ public class testParser extends parserCVS{
         }
         return list;
     }
-    public test parseTest(String[] cvsLine) {
+    public test parseTest(String[] csvLine) {
         ID id;
         address address;
         person person;
         String MDAcode;
         Date getDate,takeDate,resultDate;
         SimpleDateFormat formatter1=new SimpleDateFormat("dd/MM/yyyy");
-        SimpleDateFormat formatter2=new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat formatter2=new SimpleDateFormat("dd.MM.yyyy");
 
         try {
-            MDAcode =cvsLine[0];
-            id = new ID(Integer.parseInt(cvsLine[1]),Integer.parseInt(cvsLine[2]));
-            address = new address(cvsLine[5],cvsLine[6],Integer.parseInt(cvsLine[7]));
-            person = new person(id,cvsLine[3],cvsLine[4],address);
+            MDAcode =csvLine[0];
+            id = new ID(Integer.parseInt(csvLine[1]),Integer.parseInt(csvLine[2]));
+            address = new address(csvLine[5],csvLine[6],Integer.parseInt(csvLine[7]));
+            person = new person(id,csvLine[3],csvLine[4],address);
+            getDate = formatter2.parse(csvLine[9]);
+            takeDate = formatter2.parse(csvLine[10]);
+            resultDate = formatter1.parse(csvLine[11]);
         }
-        catch (NumberFormatException e)
+        catch (NumberFormatException | ParseException e)
         {
             return null;
         }
 
-        return new test(MDAcode,person,cvsLine[8],null),
-                null,null);
+        return new test(MDAcode,person,csvLine[8],getDate,takeDate,resultDate);
     }
 }

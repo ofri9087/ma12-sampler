@@ -1,8 +1,8 @@
-package matmon.work.parser;
+package matmon.work.read;
 
 import java.util.List;
 
-public interface read {
+public interface readFile extends read{
 
     List<String[]> readFile(String file);
 

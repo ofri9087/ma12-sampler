@@ -1,4 +1,4 @@
-package matmon.work.parser;
+package matmon.work.read;
 
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvException;
@@ -7,7 +7,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
 
-public class readCVS implements read{
+public class readCVS implements readFile {
 
     @Override
     public List<String[]> readFile(String file) {

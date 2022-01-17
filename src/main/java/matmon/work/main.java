@@ -1,16 +1,11 @@
 package matmon.work;
 
-import com.opencsv.CSVReader;
-import com.opencsv.exceptions.CsvException;
+import matmon.work.load.loadToJson;
 import matmon.work.object.test.test;
-import matmon.work.parser.parserCVS;
-import matmon.work.parser.readCVS;
+import matmon.work.read.readCVS;
 import matmon.work.parser.testParser;
 
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class main {
@@ -22,9 +17,8 @@ public class main {
 
         ArrayList<test> tests = parser.parseAll();
 
-        for (test T: tests) {
-            System.out.println(T.toString());
+        loadToJson load = new loadToJson();
 
-        }
+        load.loadToFile(tests);
     }
 }
