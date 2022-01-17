@@ -1,7 +1,7 @@
 package matmon.work.object.test;
 
-import java.time.Instant;
-import java.time.LocalDate;
+import matmon.work.object.person;
+
 import java.util.Date;
 
 
@@ -14,7 +14,7 @@ public class test {
     private Date takeDate;
     private Date resultDate;
 
-    public test(String MDAcode, matmon.work.object.test.person person, String barCode,
+    public test(String MDAcode, matmon.work.object.person person, String barCode,
                 Date getDate, Date takeDate, Date resultDate) {
         this.MDAcode = MDAcode;
         this.person = person;
@@ -32,11 +32,11 @@ public class test {
         this.MDAcode = MDAcode;
     }
 
-    public matmon.work.object.test.person getPerson() {
+    public matmon.work.object.person getPerson() {
         return person;
     }
 
-    public void setPerson(matmon.work.object.test.person person) {
+    public void setPerson(matmon.work.object.person person) {
         this.person = person;
     }
 

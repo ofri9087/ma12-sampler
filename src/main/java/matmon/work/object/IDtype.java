@@ -1,4 +1,4 @@
-package matmon.work.object.test;
+package matmon.work.object;
 
 public enum IDtype {
     BLUE(0),PASSPORT(1),MEMBER(2);

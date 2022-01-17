@@ -1,4 +1,4 @@
-package matmon.work.object.test;
+package matmon.work.object;
 
 import java.util.Date;
 

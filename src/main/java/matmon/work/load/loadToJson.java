@@ -11,7 +11,8 @@ public class loadToJson<T> implements loadToFile{
     private final int MAX_OBJECTS = 50000;
     private int countFiles = 1;
 
-    public void loadToFile(ArrayList<T> listOfObjects) {
+    @Override
+    public void loadToFile(ArrayList listOfObjects) {
 
         int start = 1;
         int count =1;
@@ -42,7 +43,6 @@ public class loadToJson<T> implements loadToFile{
             }
             count =0;
         }
-
 
     }
 

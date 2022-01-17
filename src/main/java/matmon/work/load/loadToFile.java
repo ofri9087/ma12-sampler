@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public interface loadToFile<T> extends loadObjects{
 
-    //void loadToFile(ArrayList<T> listOfObjects);
+    void loadToFile(ArrayList<T> listOfObjects);
 
     File createNewFile();
 }

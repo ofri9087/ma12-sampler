@@ -1,9 +1,9 @@
-package matmon.work.object.test;
+package matmon.work.object;
 
 public class ID {
 
     private int IDnum;
-    private int type;
+    private int type;/*ENUM!!!!*/
     //private IDtype iDtype;
 
     public ID(int IDnum, int type) {
