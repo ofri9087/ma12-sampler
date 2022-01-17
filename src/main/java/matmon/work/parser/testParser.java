@@ -10,19 +10,22 @@ import java.util.List;
 
 public class testParser extends parserCVS{
 
-    public List<String[]> csvFile;
 
     public testParser(List<String[]> csvFile) {
-        this.csvFile = csvFile;
+        super(csvFile);
     }
-    public ArrayList<test> parseAll()
-    {
+
+    @Override
+    public ArrayList parseAll() {
+
         ArrayList<test> list = new ArrayList<>();
-        for (String[] line:this.csvFile){
-            list.add(parseTest(line));
+        for (int i=1;i<this.csvFile.size();i++){
+
+            list.add(parseTest((String[]) this.csvFile.get(i)));
         }
-        return list;
-    }
+        return list;    }
+
+
     public test parseTest(String[] csvLine) {
         ID id;
         address address;
