@@ -3,6 +3,8 @@ package matmon.work;
 import health_care_provider.HealthCareInfoProvider;
 import health_care_provider.errors.InvalidIdException;
 import health_care_provider.models.PersonInsured;
+import matmon.work.load.loadToJson;
+import matmon.work.object.labTest.labTest;
 import matmon.work.object.positiveTest.positiveLabTests;
 import matmon.work.object.positiveTest.positiveTest;
 import matmon.work.parser.labTestParser;
@@ -22,7 +24,9 @@ public class main {
         positiveLabTests test = new positiveLabTests();
         ArrayList<positiveTest> tests = test.findPositiveTestDate(parser.positiveTests,listMADA);
 
-        int i=0;
+        loadToJson<labTest> json = new loadToJson<>();
+
+        json.loadToFile(tests);
 
     }
 }
