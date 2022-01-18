@@ -1,26 +1,18 @@
 package matmon.work;
 
-import matmon.work.load.loadToJson;
-import matmon.work.object.labTest.labTest;
-import matmon.work.object.test.test;
-import matmon.work.parser.labTestParser;
-import matmon.work.read.readCVS;
-import matmon.work.parser.testParser;
-
-import java.util.ArrayList;
-import java.util.List;
+import health_care_provider.HealthCareInfoProvider;
+import health_care_provider.errors.InvalidIdException;
+import health_care_provider.models.PersonInsured;
 
 public class main {
     public static void main(String[] args) {
-        readCVS file = new readCVS();
-        List<String[]> list = file.readFile("C:\\Users\\Ofri\\Desktop\\work\\mada1\\src\\main\\resources\\LabTests.csv");
+        HealthCareInfoProvider heakth = new HealthCareInfoProvider();
 
-        labTestParser parser = new labTestParser(list);
+        try {
+            PersonInsured person = heakth.fetchInfo(878746593,2);
+        } catch (InvalidIdException e) {
+            e.printStackTrace();
+        }
 
-        ArrayList<labTest> tests = parser.parseAll();
-
-        loadToJson load = new loadToJson();
-
-       // load.loadToFile(tests);
     }
 }

@@ -1,13 +1,14 @@
 package matmon.work.load;
 
-import com.google.gson.Gson;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
+import java.util.List;
 
-public class loadToXml implements loadToFile{
+import com.fasterxml.jackson.dataformat.xml.XmlMapper;
+import matmon.work.splitList;
+
+public class loadToXml<T> implements loadToFile{
 
     private final int MAX_OBJECTS = 50000;
     private int countFiles = 1;
@@ -15,15 +16,17 @@ public class loadToXml implements loadToFile{
     @Override
     public void loadToFile(ArrayList listOfObjects) {
 
-        int start = 1;
-        int count =1;
+        splitList split = new splitList();
+        List<List<T>> splitList = split.split(MAX_OBJECTS,listOfObjects);
+        XmlMapper xmlMapper = new XmlMapper();
 
-        while(start<listOfObjects.size())
-        {
-            JAXBContext contextObj = JAXBContext.newInstance(Question.class);
+        for (List<T> list:splitList){
+            try {
+                xmlMapper.writeValue(createNewFile(), list);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 
-            Marshaller marshallerObj = contextObj.createMarshaller();
-            marshallerObj.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 
         }
     }
@@ -32,5 +35,7 @@ public class loadToXml implements loadToFile{
     public File createNewFile() {
         String fileName = "xmlFile"+this.countFiles;
         this.countFiles ++;
-        return new File(String.format("C:\\Users\\Ofri\\Desktop\\mada_reports\\%s.xml",fileName));    }
+        return new File(String.format("C:\\Users\\Ofri\\Desktop\\mada_reports\\%s.xml",fileName));
+    }
+
 }

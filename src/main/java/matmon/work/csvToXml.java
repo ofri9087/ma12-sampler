@@ -1,10 +1,11 @@
 package matmon.work;
 
+
 import matmon.work.load.loadToJson;
+import matmon.work.load.loadToXml;
 import matmon.work.object.labTest.labTest;
 import matmon.work.parser.labTestParser;
 import matmon.work.read.readCVS;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,9 +17,8 @@ public class csvToXml {
         labTestParser parser = new labTestParser(list);
         ArrayList<labTest> tests = parser.parseAll();
 
-        loadToJson load = new loadToJson();
+        loadToJson<labTest> json = new loadToJson<>();
 
-        load.loadToFile(tests);
-
+        json.loadToFile(tests);
     }
 }
