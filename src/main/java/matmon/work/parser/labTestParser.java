@@ -4,20 +4,22 @@ import matmon.work.object.ID;
 import matmon.work.object.labTest.labTest;
 import matmon.work.object.labTest.testType;
 import matmon.work.object.person;
-import matmon.work.object.test.address;
-import matmon.work.object.test.test;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
-public class labTestParser extends parserCVS{
+public class labTestParser extends parserCSV {
+
+    public HashMap<Integer,labTest> positiveTests ;
 
     public labTestParser(List csvFile) {
         super(csvFile);
+        this.positiveTests = new HashMap<>();
     }
+
 
     @Override
     public labTest parse(String[] csvLine) {
@@ -39,8 +41,12 @@ public class labTestParser extends parserCVS{
         {
             return null;
         }
-
-        return new labTest(person,resultDate,csvLine[6],csvLine[7],Integer.parseInt(csvLine[8]),
+        int testResults = Integer.parseInt(csvLine[8]);
+        labTest TEST = new labTest(person,resultDate,csvLine[6],csvLine[7],testResults,
                 csvLine[9],testType.valueOf(csvLine[10]));
+        if(testResults == 1 || testResults == 2)
+            this.positiveTests.put(id.getIDnum(),TEST);
+
+        return TEST;
     }
 }

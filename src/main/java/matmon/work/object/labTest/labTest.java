@@ -21,6 +21,7 @@ public class labTest {
     private int testResults; /*ENUM!!!!*/
     @JacksonXmlProperty(localName = "variant")
     private String variant;
+
     @JacksonXmlProperty(localName = "type")
     private testType type;
 
@@ -36,5 +37,11 @@ public class labTest {
         this.type = type;
     }
 
+    public void setPerson(person person) {
+        this.person = person;
+    }
 
+    public person getPerson() {
+        return person;
+    }
 }

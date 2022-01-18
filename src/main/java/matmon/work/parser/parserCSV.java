@@ -1,15 +1,13 @@
 package matmon.work.parser;
 
-import matmon.work.object.test.test;
-
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class parserCVS<T> implements parser {
+public abstract class parserCSV<T> implements parser {
 
     protected List<String[]> csvFile;
 
-    protected parserCVS(List<String[]> csvFile) {
+    protected parserCSV(List<String[]> csvFile) {
         this.csvFile = csvFile;
     }
 

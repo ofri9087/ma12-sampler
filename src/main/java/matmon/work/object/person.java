@@ -3,7 +3,7 @@ package matmon.work.object;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 import health_care_provider.errors.InvalidIdException;
-import matmon.work.object.test.address;
+import matmon.work.load.loadToXml;
 
 import java.util.Date;
 

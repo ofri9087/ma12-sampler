@@ -14,7 +14,7 @@ public class test {
     private Date takeDate;
     private Date resultDate;
 
-    public test(String MDAcode, matmon.work.object.person person, String barCode,
+    public test(String MDAcode, person person, String barCode,
                 Date getDate, Date takeDate, Date resultDate) {
         this.MDAcode = MDAcode;
         this.person = person;
@@ -24,21 +24,6 @@ public class test {
         this.resultDate = resultDate;
     }
 
-    public String getMDAcode() {
-        return MDAcode;
-    }
-
-    public void setMDAcode(String MDAcode) {
-        this.MDAcode = MDAcode;
-    }
-
-    public matmon.work.object.person getPerson() {
-        return person;
-    }
-
-    public void setPerson(matmon.work.object.person person) {
-        this.person = person;
-    }
 
     @Override
     public String toString() {
@@ -52,12 +37,5 @@ public class test {
                 '}';
     }
 
-    public String getBarCode() {
-        return barCode;
-    }
-
-    public void setBarCode(String barCode) {
-        this.barCode = barCode;
-    }
 
 }

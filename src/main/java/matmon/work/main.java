@@ -3,16 +3,26 @@ package matmon.work;
 import health_care_provider.HealthCareInfoProvider;
 import health_care_provider.errors.InvalidIdException;
 import health_care_provider.models.PersonInsured;
+import matmon.work.object.positiveTest.positiveLabTests;
+import matmon.work.object.positiveTest.positiveTest;
+import matmon.work.parser.labTestParser;
+import matmon.work.read.readCVS;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class main {
     public static void main(String[] args) {
-        HealthCareInfoProvider heakth = new HealthCareInfoProvider();
+        readCVS file = new readCVS();
+        List<String[]> listLab = file.readFile("C:\\Users\\Ofri\\Desktop\\work\\mada1\\src\\main\\resources\\LabTests.csv");
+        labTestParser parser = new labTestParser(listLab);
+        parser.parseAll();
+        List<String[]> listMADA = file.readFile("C:\\Users\\Ofri\\Desktop\\work\\mada1\\src\\main\\resources\\MadaReports.csv");
 
-        try {
-            PersonInsured person = heakth.fetchInfo(878746593,2);
-        } catch (InvalidIdException e) {
-            e.printStackTrace();
-        }
+        positiveLabTests test = new positiveLabTests();
+        ArrayList<positiveTest> tests = test.findPositiveTestDate(parser.positiveTests,listMADA);
+
+        int i=0;
 
     }
 }

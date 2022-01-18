@@ -1,16 +1,17 @@
 package matmon.work.parser;
 
+import matmon.work.load.loadToXml;
 import matmon.work.object.ID;
+import matmon.work.object.address;
 import matmon.work.object.person;
 import matmon.work.object.test.*;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class testParser extends parserCVS{
+public class testParser extends parserCSV {
 
 
     public testParser(List<String[]> csvFile) {
