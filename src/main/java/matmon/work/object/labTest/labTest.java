@@ -3,7 +3,6 @@ package matmon.work.object.labTest;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 import matmon.work.object.person;
-
 import java.util.Date;
 
 @JacksonXmlRootElement(localName = "labTest")

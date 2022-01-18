@@ -1,9 +1,7 @@
 package matmon.work.object.test;
 
 import matmon.work.object.person;
-
 import java.util.Date;
-
 
 public class test {
 

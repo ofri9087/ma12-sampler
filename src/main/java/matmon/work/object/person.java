@@ -3,7 +3,6 @@ package matmon.work.object;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 import health_care_provider.errors.InvalidIdException;
-import matmon.work.load.loadToXml;
 
 import java.util.Date;
 
@@ -21,8 +20,6 @@ public class person {
     private Date birthDate =null;
     @JacksonXmlProperty(localName = "healthCare")
     private personHealth personHealth;
-
-
 
     public person(ID id, String firstName, String lastName) {
         this.id = id;

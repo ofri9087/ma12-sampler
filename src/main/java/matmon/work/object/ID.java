@@ -9,8 +9,7 @@ public class ID {
     @JacksonXmlProperty(localName = "idNum")
     private int IDnum;
     @JacksonXmlProperty(localName = "idType")
-    private int type;/*ENUM!!!!*/
-    //private IDtype iDtype;
+    private int type;
 
     public ID(int IDnum, int type) {
         this.IDnum = IDnum;

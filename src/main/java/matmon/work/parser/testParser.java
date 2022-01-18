@@ -42,7 +42,6 @@ public class testParser extends parserCSV {
         {
             return null;
         }
-
         return new test(MDAcode,person,csvLine[8],getDate,takeDate,resultDate);
     }
 

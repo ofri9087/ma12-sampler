@@ -9,6 +9,11 @@ import java.util.List;
 
 public class readCVS implements readFile {
 
+    /**
+     * read a csv file
+     * @param file - the file top read
+     * @return - all the lines in the file
+     */
     @Override
     public List<String[]> readFile(String file) {
         List<String[]> record = null;

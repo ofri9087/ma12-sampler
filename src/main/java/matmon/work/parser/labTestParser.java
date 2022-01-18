@@ -13,13 +13,12 @@ import java.util.List;
 
 public class labTestParser extends parserCSV {
 
-    public HashMap<Integer,labTest> positiveTests ;
+    public HashMap<Integer,labTest> positiveTests;/*map of all the positive patients with their tests and id num*/
 
     public labTestParser(List csvFile) {
         super(csvFile);
         this.positiveTests = new HashMap<>();
     }
-
 
     @Override
     public labTest parse(String[] csvLine) {
@@ -37,14 +36,14 @@ public class labTestParser extends parserCSV {
             resultDate = formatter.parse(csvLine[4]);
 
         }
-        catch (NumberFormatException | ParseException e)
+        catch (NumberFormatException | ParseException e) /*return null so that we can skip the header later*/
         {
             return null;
         }
         int testResults = Integer.parseInt(csvLine[8]);
         labTest TEST = new labTest(person,resultDate,csvLine[6],csvLine[7],testResults,
                 csvLine[9],testType.valueOf(csvLine[10]));
-        if(testResults == 1 || testResults == 2)
+        if(testResults == 1 || testResults == 2) /*check if patient positive*/
             this.positiveTests.put(id.getIDnum(),TEST);
 
         return TEST;
